@@ -1,0 +1,36 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+  labels:
+    app: newapp
+    app.kubernetes.io/component: newapp
+    app.kubernetes.io/instance: newapp
+  name: newapp
+  namespace: nodejs-build
+spec:
+  output:
+    to:
+      kind: ImageStreamTag
+      name: newapp:latest
+  resources: {}
+  runPolicy: Serial
+  source:
+    binary: {}
+    type: Binary
+  strategy:
+    dockerStrategy: 
+      dockerfilePath: Dockerfile
+      from:
+        kind: ImageStreamTag
+        namespace: openshift
+        name: nodejs:latest
+    type: Docker
+  triggers:
+  - github:
+      secret: prfofiZmIzdZsbGLNcLT
+    type: GitHub
+  - generic:
+      secret: dyPn-7DKUSerP7sSkXLk
+    type: Generic

@@ -1,0 +1,41 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+  creationTimestamp: "2025-03-26T10:58:40Z"
+  generation: 1
+  labels:
+    app: custom-build
+    app.kubernetes.io/component: custom-build
+    app.kubernetes.io/instance: custom-build
+  name: custom-build
+  namespace: demo7
+  resourceVersion: "2305720"
+  uid: d0fa8475-5d99-4a1c-ab75-67f17c75b50c
+spec:
+  failedBuildsHistoryLimit: 5
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: custom-build:latest
+  postCommit: {}
+  resources: {}
+  runPolicy: Serial
+  source:
+    binary: {}
+    type: Binary
+  strategy:
+    dockerStrategy: {}
+    type: Docker
+  successfulBuildsHistoryLimit: 5
+  triggers:
+  - github:
+      secret: NpDhEE24krx8zn5a6OWo
+    type: GitHub
+  - generic:
+      secret: pwFb-S16gdG72nhjNvik
+    type: Generic
+status:
+  lastVersion: 0

@@ -1,0 +1,38 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+  labels:
+    app: demo3
+    app.kubernetes.io/component: demo3
+    app.kubernetes.io/instance: demo3
+  name: demo3
+  namespace: nodejs-build1
+spec:
+  output:
+    to:
+      kind: ImageStreamTag
+      name: demo3:latest
+  postCommit: {}
+  resources: {}
+  runPolicy: Serial
+  source:
+    binary: {}
+    type: Binary
+  strategy:
+    dockerStrategy: 
+      dockerfilePath: Dockerfile
+      from:
+        kind: ImageStreamTag
+        name: nodejs:latest
+        namespace: openshift
+    type: Docker
+  successfulBuildsHistoryLimit: 5
+  triggers:
+  - github:
+      secret: Y2yykWp5KpMNMKyhuQt6
+    type: GitHub
+  - generic:
+      secret: -uZDS_QoKFazccxf6qes
+    type: Generic
