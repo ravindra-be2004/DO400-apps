@@ -30,8 +30,7 @@ stage('Security Scan') {
  -p CVE_CODE=CVE-2020-14583 \
  | oc replace --force -n ${APP_NAMESPACE} -f -
  """
- sh "! ../tools/check-job-state.sh security-scans-trivy
- ${APP_NAMESPACE}"
+ sh "! ../tools/check-job-state.sh security-scans-trivy ${APP_NAMESPACE}"
  }
  }
 }
