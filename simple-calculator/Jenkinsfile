@@ -28,7 +28,6 @@ script {
  unstable("${STAGE_NAME} stage failed")
    }
   }
-}
 
  }
  }
