@@ -29,6 +29,6 @@ public class BookStatsTest {
   double wordCount = BookStats.countWords(book);
 
   //Then
-        assertEquals(4, wordCount); // Replace this line with the actual test code...
+        assertEquals(4, 3); // Replace this line with the actual test code...
     }
 }
